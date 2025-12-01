@@ -2,13 +2,13 @@
 
 ## 운영체제
 
-- [1. linux 알아보기](#)
+- [1. linux 알아보기](https://github.com/ESG-EDU/Docs/tree/main/linux)
 
 ## 가상화 및 배포
 
-- [1. docker 알아보기](#)
+- [1. docker 알아보기](https://github.com/ESG-EDU/Docs/tree/main/docker)
 - [2. docker compose 알아보기](#)
-- [3. kubernetes 알아보기](#)
+- [3. kubernetes 알아보기](https://github.com/ESG-EDU/Docs/tree/main/kubernetes)
 
 ## Microsoft Architecture
 
@@ -16,5 +16,5 @@
 
 ## CI/CD
 
-- [1. jenkins 알아보기](#)
+- [1. jenkins 알아보기](https://github.com/ESG-EDU/Docs/tree/main/jenkins)
 - [2. git actions 알아보기](#)
