@@ -1,0 +1,28 @@
+FROM jenkins/jenkins:lts
+
+USER root
+
+# 기본 패키지 설치
+RUN apt-get update && \
+    apt-get install -y ca-certificates curl gnupg lsb-release && \
+    mkdir -m 0755 -p /etc/apt/keyrings
+
+# Docker 공식 GPG Key 추가
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | \
+    gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+# Docker repository 추가
+RUN echo "deb [arch=$(dpkg --print-architecture) \
+    signed-by=/etc/apt/keyrings/docker.gpg] \
+    https://download.docker.com/linux/debian \
+    $(lsb_release -cs) stable" \
+    > /etc/apt/sources.list.d/docker.list
+
+# Docker 엔진 설치
+RUN apt-get update && \
+    apt-get install -y docker-ce docker-ce-cli containerd.io
+
+# jenkins 유저가 docker 명령 사용 가능하도록 설정
+RUN groupadd -g 999 docker || true && usermod -aG docker jenkins
+
+USER jenkins
